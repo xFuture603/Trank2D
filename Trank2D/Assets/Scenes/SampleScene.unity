@@ -312,5 +312,7 @@ MonoBehaviour:
     type: 3}
   StoneTile: {fileID: 3122916616100265361, guid: 9953952470e629a47b2d7487145c0050,
     type: 3}
-  width: 50
+  width: 25
   heightMultiplier: 10
+  heightAddition: 10
+  smoothness: 15

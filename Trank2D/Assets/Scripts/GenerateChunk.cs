@@ -9,15 +9,19 @@ public class GenerateChunk : MonoBehaviour
     public GameObject StoneTile;
     public int width;
     public float heightMultiplier;
+    public int heightAddition;
+    public float smoothness;
+    float seed;
     void Start()
     {
         Generate();
+        seed = Random.Range(-10000f, 10000f);
     }
 
     public void Generate()
     {
         for(int i = 0; i < width; i++) {
-            int h = Mathf.RoundToInt(Mathf.PerlinNoise (1f, i / 3) + heightMultiplier);
+            int h = Mathf.RoundToInt(Mathf.PerlinNoise (seed, i / smoothness ) * heightMultiplier) + heightAddition;
             for(int j = 0; j < h; j++) {
                 GameObject selectedTile;
                 if(j < h - 4) {
