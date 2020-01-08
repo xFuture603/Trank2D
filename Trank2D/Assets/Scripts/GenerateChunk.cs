@@ -2,17 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class GenerateChunk : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject DirtTile;
+    public GameObject GrassTile;
+    public GameObject StoneTile;
+    public int width;
+    public float heightMultiplier;
     void Start()
     {
-        
+        Generate();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Generate()
     {
-        
+        for(int i = 0; i < width; i++) {
+            int h = Mathf.RoundToInt(Mathf.PerlinNoise (1f, i / 3) + heightMultiplier);
+            for(int j = 0; j < h; j++) {
+                GameObject selectedTile;
+                if(j < h - 4) {
+                    selectedTile = StoneTile;
+                } else if ( j < h -1) {
+                    selectedTile = DirtTile;
+                } else {
+                    selectedTile = GrassTile;
+                }
+                Instantiate(selectedTile, new Vector3(i, j), Quaternion.identity);
+
+            }
+        }
     }
 }
