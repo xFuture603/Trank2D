@@ -1,2 +1,3 @@
 # Trank2D
-Play around with Unity and C#
+
+Playing around with Unity and C# to create a clone of the popular game Clonk from 1994.
