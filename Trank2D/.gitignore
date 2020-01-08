@@ -52,6 +52,9 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+# Aseprite working files
+*.aseprite
+
 # Crashlytics generated file
 crashlytics-build.properties
 
